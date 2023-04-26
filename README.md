@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-npm install
+npm install , npm i sweetalert2
 ```
 
 ### Compiles and hot-reloads for development

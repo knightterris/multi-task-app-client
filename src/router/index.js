@@ -3,7 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import ProductView from '../views/ProductView.vue'
 import AboutUsView from '../views/AboutUsView.vue'
 import ContactUsView from '../views/ContactUsView.vue'
-import LoginView from                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 '../views/LoginView.vue'
+import LoginView from '../views/LoginView.vue'
+import AdminHomeView from '../views/AdminHomeView.vue'
+import CategoryView from '../views/CategoryView.vue'
 
 const routes = [
   {
@@ -30,7 +32,18 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/adminHome',
+    name: 'adminHome',
+    component: AdminHomeView
+  },
+  {
+    path: '/category',
+    name: 'category',
+    component: CategoryView
   }
+  
 ]
 
 const router = createRouter({

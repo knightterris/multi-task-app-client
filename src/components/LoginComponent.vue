@@ -12,26 +12,31 @@
             <!-- <form id="contact" action="" method="post"> -->
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12">
-                <fieldset>
-                  <input
-                    name="email"
-                    v-model="userData.email"
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    placeholder="E-Mail Address"
-                    required=""
-                  />
+                <fieldset class="mb-3">
+                  <div class="text-start">
+                    <input
+                      v-model="userData.email"
+                      type="text"
+                      class="form-control m-0"
+                      :class="{ 'is-invalid': errorMsgStatus }"
+                      placeholder="E-Mail Address"
+                    />
+                    <small class="text-danger">{{ errorMsg }}</small>
+                  </div>
                 </fieldset>
               </div>
               <div class="col-lg-12">
-                <fieldset>
-                  <input
-                    type="password"
-                    v-model="userData.password"
-                    class="form-control"
-                    placeholder="Enter Your Password"
-                  />
+                <fieldset class="mb-3">
+                  <div class="text-start">
+                    <input
+                      type="password"
+                      v-model="userData.password"
+                      class="form-control m-0"
+                      :class="{ 'is-invalid': errorMsgStatus }"
+                      placeholder="Enter Your Password"
+                    />
+                    <small class="text-danger">{{ errorMsg }}</small>
+                  </div>
                 </fieldset>
               </div>
               <div class="col-lg-12 d-flex justify-content-end">

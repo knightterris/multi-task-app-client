@@ -3,7 +3,10 @@
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"
+          <a v-if="loginStatus" class="navbar-brand" href="/adminHome"
+            ><h2>Sixteen <em>Clothing</em></h2></a
+          >
+          <a v-else class="navbar-brand" href="/login"
             ><h2>Sixteen <em>Clothing</em></h2></a
           >
           <button
@@ -46,8 +49,16 @@
                   >Contact Us</router-link
                 >
               </li>
-              <li class="nav-item" :class="{ active: isCurrentUrl('/login') }">
+
+              <li
+                v-if="loginStatus == false"
+                class="nav-item"
+                :class="{ active: isCurrentUrl('/login') }"
+              >
                 <router-link class="nav-link" to="/login">Login</router-link>
+              </li>
+              <li v-else class="nav-item">
+                <a class="nav-link" @click="logout">Logout</a>
               </li>
             </ul>
           </div>
@@ -64,8 +75,17 @@ export default {
     isCurrentUrl(url) {
       return this.$route.path.includes(url);
     },
+    logout() {
+      localStorage.removeItem("userData");
+      localStorage.removeItem("token");
+      localStorage.removeItem("loginStatus");
+      this.$router.push("/login");
+    },
+  },
+  computed: {
+    loginStatus() {
+      return this.$store.getters.getLoginStatus;
+    },
   },
 };
 </script>
-
-<style lang="scss" scoped></style>
