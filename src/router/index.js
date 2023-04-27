@@ -6,6 +6,8 @@ import ContactUsView from '../views/ContactUsView.vue'
 import LoginView from '../views/LoginView.vue'
 import AdminHomeView from '../views/AdminHomeView.vue'
 import CategoryView from '../views/CategoryView.vue'
+import AdminProfileView from '../views/AdminProfileView.vue'
+import AdminProfileEditView from '../views/EditProfileView.vue'
 
 const routes = [
   {
@@ -42,6 +44,16 @@ const routes = [
     path: '/category',
     name: 'category',
     component: CategoryView
+  },
+  {
+    path: '/admin/profile',
+    name: 'adminProfile',
+    component: AdminProfileView
+  },
+  {
+    path: '/admin/profile/edit',
+    name: 'adminProfileEdit',
+    component:AdminProfileEditView
   }
   
 ]

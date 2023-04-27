@@ -24,7 +24,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="">{{
+            <router-link class="nav-link" to="/admin/profile">{{
               userName.name
             }}</router-link>
           </li>
