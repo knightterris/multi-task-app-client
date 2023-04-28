@@ -1,4 +1,5 @@
 import axios from "axios"
+import Swal from "sweetalert2";
 
 export default {
         name : "ProductCreateComponent",
@@ -70,7 +71,22 @@ export default {
                         formData.append('created_by',this.created_by);
                         axios.post("http://localhost:8000/api/create/product",formData,{
                                 headers: { 'Content-Type': 'multipart/form-data' }}).then((response)=>{
-                                console.log(response);
+                                // console.log(response);
+                                this.$router.push('/product/list');
+                                if(response.data == 'Product Created'){
+                                        const Toast = Swal.mixin({
+                                                toast: true,
+                                                position: 'top-end',
+                                                showConfirmButton: false,
+                                                timer: 2000,
+                                                timerProgressBar: true,
+                                              })
+                                              
+                                              Toast.fire({
+                                                icon: 'success',
+                                                title: 'Product Created'
+                                        })
+                                }
                         })
                         
                 },

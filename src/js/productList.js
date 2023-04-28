@@ -1,4 +1,5 @@
 import axios from "axios"
+import Swal from "sweetalert2";
 export default{
     name:"ProductListComponent",
     data() {
@@ -13,6 +14,27 @@ export default{
         },
         createProduct(){
             this.$router.push("/product/create")
+        },
+        deleteProduct(id){
+            var productID = id;
+            axios.post("http://localhost:8000/api/delete/product",{product_id:productID}).then((response)=>{
+                // console.log(response);
+                if(response.data == 'Product Deleted'){
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                      })
+                      
+                      Toast.fire({
+                        icon: 'success',
+                        title: 'Product Deleted'
+                    })
+                    this.productData = this.productData.filter((item) => item.id !== id)
+                }
+            })
         }
     },
     mounted() {

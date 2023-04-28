@@ -1,5 +1,5 @@
 <template>
-  <div class="row mt-5">
+  <div class="row mt-5 p-3">
     <div class="col">
       <div class="card">
         <div class="card-header d-flex justify-content-between">
@@ -54,7 +54,7 @@
                     <td>
                       <i class="fa-regular fa-eye me-3"></i>
                       <i class="fa-regular fa-pen-to-square me-3"></i>
-                      <i class="fa-regular fa-trash-can"></i>
+                      <i class="fa-regular fa-trash-can" @click="deleteProduct(item.id)"></i>
                     </td>
                   </tr>
                 </tbody>
