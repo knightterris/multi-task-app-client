@@ -27,7 +27,7 @@ export default {
               Toast.fire({
                 icon: 'success',
                 title: 'Action Successful'
-              })
+            })
         },
         createFoodCategory() {
             const data = {

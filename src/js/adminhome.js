@@ -16,7 +16,7 @@ export default {
     mounted() {
       axios.get("http://localhost:8000/api/allProducts").then((response)=>{
         this.data = response.data;
-        console.log(this.data);
+        // console.log(this.data);
       })
     },
   };

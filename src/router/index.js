@@ -8,6 +8,9 @@ import AdminHomeView from '../views/AdminHomeView.vue'
 import CategoryView from '../views/CategoryView.vue'
 import AdminProfileView from '../views/AdminProfileView.vue'
 import AdminProfileEditView from '../views/EditProfileView.vue'
+import ChangePasswordView from '../views/PasswordView.vue'
+import ProductListView from '../views/ProductListView.vue'
+import ProductCreateView from '../views/ProductCreateView.vue'
 
 const routes = [
   {
@@ -54,6 +57,21 @@ const routes = [
     path: '/admin/profile/edit',
     name: 'adminProfileEdit',
     component:AdminProfileEditView
+  },
+  {
+    path: '/change/password',
+    name: 'changePassword',
+    component: ChangePasswordView
+  },
+  {
+    path: '/product/list',
+    name: 'productList',
+    component: ProductListView
+  },
+  {
+    path: '/product/create',
+    name: 'productCreate',
+    component: ProductCreateView
   }
   
 ]

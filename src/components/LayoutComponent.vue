@@ -30,7 +30,9 @@
           </li>
 
           <li class="nav-item">
-            <router-link class="nav-link" to="">Password</router-link>
+            <router-link class="nav-link" to="/change/password"
+              >Password</router-link
+            >
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="">My Wall</router-link>
@@ -39,7 +41,9 @@
             <router-link class="nav-link" to="/category">Category</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="">Product</router-link>
+            <router-link class="nav-link" to="/product/list"
+              >Product</router-link
+            >
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="">Wishlist</router-link>
