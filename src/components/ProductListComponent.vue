@@ -52,9 +52,15 @@
                     <td>{{ item.status }}</td>
                     <td>{{ item.price }}</td>
                     <td>
-                      <i class="fa-regular fa-eye me-3"></i>
-                      <i class="fa-regular fa-pen-to-square me-3"></i>
-                      <i class="fa-regular fa-trash-can" @click="deleteProduct(item.id)"></i>
+                      <i
+                        class="fa-regular fa-eye me-3"
+                        @click="showProduct(item.id)"
+                      ></i>
+                      <i class="fa-regular fa-pen-to-square me-3" @click="editProduct(item.id)"></i>
+                      <i
+                        class="fa-regular fa-trash-can"
+                        @click="deleteProduct(item.id)"
+                      ></i>
                     </td>
                   </tr>
                 </tbody>

@@ -77,7 +77,7 @@
               <i class="fa-regular fa-comment ms-5 me-2 mt-1"></i>
               {{ item.comment }}
 
-              <i class="fa-regular fa-eye ms-5 mt-1"></i>
+              <i class="fa-regular fa-eye ms-5 mt-1" @click="showProduct(item.id)"></i>
             </div>
           </div>
         </div>

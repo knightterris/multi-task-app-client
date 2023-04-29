@@ -12,6 +12,10 @@ export default {
         getImageUrl(fileName) {
             return this.imageUrl + fileName;
         },
+         
+        showProduct(id){
+            this.$router.push('/product/show/'+id)
+        },
     },
     mounted() {
       axios.get("http://localhost:8000/api/allProducts").then((response)=>{

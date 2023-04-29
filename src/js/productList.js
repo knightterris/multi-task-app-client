@@ -35,6 +35,12 @@ export default{
                     this.productData = this.productData.filter((item) => item.id !== id)
                 }
             })
+        },
+        showProduct(id){
+            this.$router.push('/product/show/'+id)
+        },
+        editProduct(id){
+            this.$router.push('/product/edit/'+ id)
         }
     },
     mounted() {

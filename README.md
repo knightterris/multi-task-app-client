@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-npm install , npm i sweetalert2
+npm install , npm i sweetalert2 , npm i bootstrap@5.3.0-alpha3 , 
 ```
 
 ### Compiles and hot-reloads for development
