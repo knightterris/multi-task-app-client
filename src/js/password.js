@@ -13,6 +13,7 @@ export default {
             newPasswordStatus : '',
             confirmPasswordStatus : '',
             oldPasswordStatus: '',
+            passwordsCheckMateStatus:'',
         }
     },
     methods: {
@@ -68,12 +69,19 @@ export default {
                         icon: 'success',
                         title: 'Password Changed.'
                     })
+                    this.oldPassword = '';
+                    this.newPassword = '';
+                    this.confirmNewPassword = '';
+                    this.newPasswordStatus  = '';
+                    this.confirmPasswordStatus  = '';
+                    this.oldPasswordStatus = '';
                 }
             })
         },
         
         newPasswordLengthCheck(){
             if(this.newPassword.length < 10 ){
+                // this.passwordsCheckMate();
                 this.newPasswordStatus = true
             }else{
                 this.newPasswordStatus = false;
@@ -81,9 +89,17 @@ export default {
         },
         confirmPasswordLengthCheck(){
             if(this.confirmNewPassword.length < 10 ){
+                // this.passwordsCheckMate();
                 this.confirmPasswordStatus = true
             }else{
                 this.confirmPasswordStatus = false
+            }
+        },
+        passwordsCheckMate(){
+            if(this.oldPassword === this.newPassword){
+                this.passwordsCheckMateStatus = false;
+            }else{
+                this.passwordsCheckMateStatus = true;
             }
         }
     },

@@ -13,6 +13,7 @@ import ProductListView from '../views/ProductListView.vue'
 import ProductCreateView from '../views/ProductCreateView.vue'
 import ProductShowView from '../views/ShowProductView.vue'
 import ProductEditView from '../views/EditProductView.vue'
+import WishlistView from '../views/WishlistView.vue'
 
 const routes = [
   {
@@ -84,6 +85,11 @@ const routes = [
     path: '/product/edit/:id',
     name: 'productEdit',
     component: ProductEditView
+  },
+  {
+    path: '/wishList',
+    name: 'wishList',
+    component: WishlistView
   }
   
 ]

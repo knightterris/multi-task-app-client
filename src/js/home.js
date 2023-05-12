@@ -2,6 +2,7 @@ import axios from "axios"
 export default{
     data() {
         return {
+            
             productData: [],
             imageUrl: 'http://localhost:8000/storage/product_images/'
         }
@@ -10,6 +11,7 @@ export default{
         getImageUrl(fileName) {
             return this.imageUrl + fileName;
         },
+        
     },
     mounted() {
         axios.get("http://localhost:8000/api/allProducts").then(response => {

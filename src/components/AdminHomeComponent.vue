@@ -7,7 +7,26 @@
         class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mt-3"
       >
         <div class="card">
-          <div class="card-header">{{ item.name }}</div>
+          <div class="card-header">
+            <div class="d-flex">
+              <div class="col-lg-11 col-md-11 col-sm-11">{{ item.name }}</div>
+              <div class="col-lg-1 col-md-1 col-sm-1">
+                <i
+                  v-if="item.wishlist_status == 0"
+                  class="fa-regular fa-bookmark"
+                  title="Add Bookmark"
+                  @click="addBookmark(item.id)"
+                ></i>
+
+                <i
+                  v-if="item.wishlist_status == 1"
+                  class="fa-solid fa-bookmark"
+                  title="Remove Bookmark"
+                  @click="removeBookmark(item.id)"
+                ></i>
+              </div>
+            </div>
+          </div>
           <div class="card-body">
             <img
               v-if="item.image == NULL"
@@ -77,7 +96,10 @@
               <i class="fa-regular fa-comment ms-5 me-2 mt-1"></i>
               {{ item.comment }}
 
-              <i class="fa-regular fa-eye ms-5 mt-1" @click="showProduct(item.id)"></i>
+              <i
+                class="fa-regular fa-eye ms-5 mt-1"
+                @click="showProduct(item.id)"
+              ></i>
             </div>
           </div>
         </div>

@@ -37,6 +37,17 @@
                 class="text-success"
                 >Password is strong.</small
               >
+              <small
+                v-else-if="passwordsCheckMateStatus === false"
+                class="text-success"
+                >Passwords are same.</small
+              >
+
+              <small
+                v-else-if="passwordsCheckMateStatus === true"
+                class="text-danger"
+                >Passwords are not same.</small
+              >
             </div>
 
             <div class="text-start my-3">
@@ -59,6 +70,17 @@
                 class="text-success"
                 >Password is strong.</small
               >
+              <small
+              v-else-if="passwordsCheckMateStatus === false"
+              class="text-success"
+              >Passwords are same.</small
+            >
+
+            <small
+              v-else-if="passwordsCheckMateStatus === true"
+              class="text-danger"
+              >Passwords are not same.</small
+            >
             </div>
           </div>
           <div class="card-footer d-flex justify-content-end">

@@ -46,7 +46,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="">Wishlist</router-link>
+            <router-link class="nav-link" to="/wishList">Wishlist</router-link>
           </li>
         </ul>
         <form class="d-flex">
