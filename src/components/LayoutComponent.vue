@@ -122,3 +122,9 @@ export default {
   mounted() {},
 };
 </script>
+
+<style>
+.navbar .navbar-nav a.nav-link {
+  color: white !important;
+}
+</style>

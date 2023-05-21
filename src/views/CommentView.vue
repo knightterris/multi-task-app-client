@@ -1,17 +1,18 @@
 <template>
   <div>
-    <!-- <HeaderComponent /> -->
-    <CommentComponent />
+    <LayoutComponent>
+      <CommentComponent />
+    </LayoutComponent>
   </div>
 </template>
 
 <script>
-// import HeaderComponent from "../components/HeaderComponent.vue";
+import LayoutComponent from "../components/LayoutComponent.vue";
 import CommentComponent from "../components/CommentComponent.vue";
 export default {
   name: "CommentView",
   components: {
-    // HeaderComponent,
+    LayoutComponent,
     CommentComponent,
   },
 };

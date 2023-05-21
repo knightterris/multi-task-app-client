@@ -93,7 +93,7 @@ const routes = [
     component: WishlistView
   },
   {
-    path: '/comments',
+    path: '/comments/:id',
     name: 'comments',
     component: CommentView
   }
