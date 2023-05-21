@@ -4,12 +4,14 @@ export default createStore({
   state: {
     userData: localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {},
     token: localStorage.getItem('token') ? localStorage.getItem('token') : '',
-    loginStatus: localStorage.getItem('loginStatus') ? localStorage.getItem('loginStatus') : ''
+    loginStatus: localStorage.getItem('loginStatus') ? localStorage.getItem('loginStatus') : '',
+    data:{},
   },
   getters: {
     getToken: state => state.token,
     getUserData: state => state.userData,
     getLoginStatus: state => state.loginStatus,
+    getData: state => state.data,
   },
   mutations: {
     SET_TOKEN(state, value) {

@@ -19,7 +19,7 @@ export default {
         mounted () {
             var userID  = this.$store.getters.getUserData.id;
             axios.get(`http://localhost:8000/api/get/my/wishlist/${userID}`).then((response)=>{
-                // console.log(response.data)
+                // console.log(response)
                 this.wishlist = response.data
             })
         },

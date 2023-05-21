@@ -10,6 +10,17 @@ export default {
             imageUrl: 'http://localhost:8000/storage/product_images/',
         }
     },
+    // computed: {
+    //     // userName() {
+    //     //   return this.$store.getters.getUserData;
+    //     // },
+    //     data(){
+    //         return {...this.searchData, ...this.data};
+    //     }
+    //   },
+    // props: {
+    //     data: {},
+    // },
     methods: {
         getImageUrl(fileName) {
             return this.imageUrl + fileName;
@@ -69,13 +80,14 @@ export default {
                     // this.data = this.data.filter((item) => item.id !== id)
                 }
             })
-        }
+        },
+       
     },
     mounted() {
     this.userID = this.$store.getters.getUserData.id;
       axios.get("http://localhost:8000/api/allProducts").then((response)=>{
         this.data = response.data;
-        // console.log(this.data);
+        // console.log(response.data);
       })
     },
   };

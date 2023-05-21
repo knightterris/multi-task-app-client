@@ -49,7 +49,9 @@
 
             <div class="my-3 d-flex justify-content-between">
               <h6 class="fw-bold">Created At</h6>
-              <span>{{ item.created_at.substr(0, 10) }}</span>
+              <span>{{
+                item.created_at ? item.created_at.substr(0, 10) : ""
+              }}</span>
             </div>
 
             <div class="my-3 d-flex justify-content-between">
@@ -93,7 +95,11 @@
             <div class="d-flex">
               <!-- <i class="fa-solid fa-heart"></i> -->
               <i class="fa-regular fa-heart mt-1 me-2"></i> {{ item.like }}
-              <i class="fa-regular fa-comment ms-5 me-2 mt-1"></i>
+              <router-link to="/comments">
+                <i class="fa-regular fa-comment ms-5 me-2 mt-1"></i>
+              </router-link>
+
+              <!-- <i class="fa-regular fa-comment ms-5 me-2 mt-1"></i> -->
               {{ item.comment }}
 
               <i

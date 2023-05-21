@@ -6,7 +6,12 @@
           <div class="card-header">Profile</div>
           <div class="card-body">
             <div class="container">
-              <img v-if="userData.photo == NULL" src="../images/no-image.png" />
+              <img
+                v-if="userData.photo == NULL"
+                src="../images/no-image.png"
+                style=""
+                class="w-50"
+              />
               <img
                 v-else
                 :src="getImageUrl(userData.photo)"

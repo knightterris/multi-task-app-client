@@ -14,6 +14,7 @@ import ProductCreateView from '../views/ProductCreateView.vue'
 import ProductShowView from '../views/ShowProductView.vue'
 import ProductEditView from '../views/EditProductView.vue'
 import WishlistView from '../views/WishlistView.vue'
+import CommentView from '../views/CommentView.vue'
 
 const routes = [
   {
@@ -90,6 +91,11 @@ const routes = [
     path: '/wishList',
     name: 'wishList',
     component: WishlistView
+  },
+  {
+    path: '/comments',
+    name: 'comments',
+    component: CommentView
   }
   
 ]
