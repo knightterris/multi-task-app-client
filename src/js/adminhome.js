@@ -85,6 +85,7 @@ export default {
     },
     mounted() {
     this.userID = this.$store.getters.getUserData.id;
+    // alert(this.userID)
       axios.get("http://localhost:8000/api/allProducts").then((response)=>{
         this.data = response.data;
         // console.log(response.data);

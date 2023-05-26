@@ -8,6 +8,8 @@ export default{
             comment: '',
             userID: '',
             productID: '',
+            commentList:{},
+            loggedInUserName: "", 
         }
     },
     methods: {
@@ -19,7 +21,13 @@ export default{
             };
             axios.post("http://localhost:8000/api/post/comment",comment).then((response)=>{
                 // console.log(response);
+                this.commentList = response.data;
+            
+            
                 if(response.status == 200){
+                    // const newComment = response.data
+                    // this.commentList.push(newComment);
+                    this.comment = '';
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
@@ -39,6 +47,16 @@ export default{
     mounted () {
         this.userID = this.$store.getters.getUserData.id;
         this.productID = this.$route.params.id;
-        
+        var id = this.productID;
+        var userId = this.userID;
+        axios.get("http://localhost:8000/api/get/comments", {
+            params:{
+                product_id:id,
+                user_id:userId
+            }
+        } ).then((response)=>{
+            // console.log(response.data);
+            this.commentList = response.data;
+        })
     },
 }

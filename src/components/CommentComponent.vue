@@ -8,7 +8,22 @@
           </router-link>
         </div>
         <div class="card-body">
-          <div class="d-flex mt-3">
+          <!-- <p class="mb-3">{{ loggedInUserName }}</p> -->
+          <div
+            class="alert alert-warning"
+            v-if="commentList.length == 0"
+            role="alert"
+          >
+            There are no comments yet.
+          </div>
+
+          <div
+            v-else
+            class="d-flex mt-3 shadow-sm"
+            v-for="(item, index) in commentList"
+            :key="index"
+          >
+            <p>{{ item.user?.name }}</p>
             <img
               src="../../public/client/default.png"
               class="rounded-circle"
@@ -19,7 +34,8 @@
               class="rounded-circle"
               style="width: 80px; height: 80px"
             /> -->
-            <p class="text-start"></p>
+
+            <p class="text-start">{{ item.message }}</p>
           </div>
         </div>
         <div class="card-footer">
@@ -31,6 +47,7 @@
                 v-model="comment"
                 class="w-100 form-control comment"
                 placeholder="Write your comment here"
+                v-on:keyup.enter="postComment()"
               />
             </div>
             <!-- <input type="hidden" name="product_id" id="product_id" value="{{ $data->id }}"> -->

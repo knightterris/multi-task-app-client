@@ -96,10 +96,9 @@
               <!-- <i class="fa-solid fa-heart"></i> -->
               <i class="fa-regular fa-heart mt-1 me-2"></i> {{ item.like }}
               <router-link :to="`/comments/${item.id}`">
-                <i class="fa-regular fa-comment ms-5 me-2 mt-1"></i>
+                <i class="fa-regular fa-comment ms-5 me-2 mt-1 text-dark"></i>
               </router-link>
 
-              <!-- <i class="fa-regular fa-comment ms-5 me-2 mt-1"></i> -->
               {{ item.comment }}
 
               <i
