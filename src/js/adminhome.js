@@ -88,8 +88,8 @@ export default {
                 user_id: this.userID,
             };
             axios.post("http://localhost:8000/api/add/like",data).then((response)=>{
-                console.log(response.data);
-                console.log(response.data[0].like);
+                // console.log(response.data);
+                // console.log(response.data[0].like);
                 // var product_id = response.data.id[0];
                 if(response.status == 200){
                     const Toast = Swal.mixin({
@@ -116,6 +116,41 @@ export default {
                 }
             })
         },
+        dislike(id){
+            let data = {
+                product_id: id,
+                user_id: this.userID,
+            };
+            axios.post("http://localhost:8000/api/add/dislike",data).then((response)=>{
+                console.log(response.data);
+                // console.log(response.data[0].like);
+                // var product_id = response.data.id[0];
+                if(response.status == 200){
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                      })
+                      
+                      Toast.fire({
+                        icon: 'success',
+                        title: 'Disliked'
+                    })
+                    // const itemToUpdate = this.data.find(item => item.id === id);
+                    // if (itemToUpdate) {
+                    // itemToUpdate.like = response.data[0].like;
+                    // }
+                    const itemToUpdate = this.data.find(item => item.id === id);
+                    if (itemToUpdate) {
+                        itemToUpdate.like = response.data.like; 
+                        itemToUpdate.reactionId = null;
+                    }
+                    
+                }
+            })
+        }
         
        
     },

@@ -98,7 +98,7 @@
                 @click="addLike(item.id)"
                 v-if="item.reactionId !== userID"
               ></i>
-              <i class="fa-solid fa-heart" v-else></i>
+              <i class="fa-solid fa-heart" @click="dislike(item.id)" v-else></i>
               {{ item.like }}
 
               <router-link :to="`/comments/${item.id}`">
