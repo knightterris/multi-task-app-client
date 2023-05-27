@@ -92,14 +92,7 @@
           </div>
 
           <div class="card-footer">
-            <!-- <h1>{{ item.user_id }}</h1> -->
             <div class="d-flex">
-              <h1>{{ userID }}</h1>
-              <!-- <i class="fa-solid fa-heart" v-if="userID === reactionId"></i>
-              <i
-                class="fa-regular fa-heart mt-1 me-2"
-                @click="addLike(item.id)"
-              ></i> -->
               <i
                 class="fa-regular fa-heart mt-1 me-2"
                 @click="addLike(item.id)"
