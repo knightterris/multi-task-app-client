@@ -8,6 +8,7 @@ export default {
             userID:'',
             data: {},
             imageUrl: 'http://localhost:8000/storage/product_images/',
+            reactionId:'',
         }
     },
     // computed: {
@@ -81,14 +82,58 @@ export default {
                 }
             })
         },
+        addLike(id){
+            let data = {
+                product_id: id,
+                user_id: this.userID,
+            };
+            axios.post("http://localhost:8000/api/add/like",data).then((response)=>{
+                console.log(response.data);
+                console.log(response.data[0].like);
+                // var product_id = response.data.id[0];
+                if(response.status == 200){
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                      })
+                      
+                      Toast.fire({
+                        icon: 'success',
+                        title: 'Liked'
+                    })
+                    const itemToUpdate = this.data.find(item => item.id === id);
+                    if (itemToUpdate) {
+                    itemToUpdate.like = response.data[0].like;
+                    const currentLoggedInUserId = this.userID;
+                    const currentUserReactionID = response.data[0].reactions.find(
+                        reaction => reaction.user_id === currentLoggedInUserId
+                    );
+                    itemToUpdate.reactionId = currentUserReactionID ? currentUserReactionID.user_id : null;
+                    }
+                }
+            })
+        },
+        
        
     },
     mounted() {
     this.userID = this.$store.getters.getUserData.id;
     // alert(this.userID)
-      axios.get("http://localhost:8000/api/allProducts").then((response)=>{
+    axios.get("http://localhost:8000/api/allProducts").then((response) => {
         this.data = response.data;
-        // console.log(response.data);
-      })
+  
+        const currentLoggedInUserId = this.userID;
+  
+        this.data.forEach((item) => {
+          const currentUserReactionID = item.reactions.find(
+            (reaction) => reaction.user_id === currentLoggedInUserId
+          );
+  
+          item.reactionId = currentUserReactionID ? currentUserReactionID.user_id : null;
+        });
+      });
     },
   };

@@ -92,9 +92,22 @@
           </div>
 
           <div class="card-footer">
+            <!-- <h1>{{ item.user_id }}</h1> -->
             <div class="d-flex">
-              <!-- <i class="fa-solid fa-heart"></i> -->
-              <i class="fa-regular fa-heart mt-1 me-2"></i> {{ item.like }}
+              <h1>{{ userID }}</h1>
+              <!-- <i class="fa-solid fa-heart" v-if="userID === reactionId"></i>
+              <i
+                class="fa-regular fa-heart mt-1 me-2"
+                @click="addLike(item.id)"
+              ></i> -->
+              <i
+                class="fa-regular fa-heart mt-1 me-2"
+                @click="addLike(item.id)"
+                v-if="item.reactionId !== userID"
+              ></i>
+              <i class="fa-solid fa-heart" v-else></i>
+              {{ item.like }}
+
               <router-link :to="`/comments/${item.id}`">
                 <i class="fa-regular fa-comment ms-5 me-2 mt-1 text-dark"></i>
               </router-link>
